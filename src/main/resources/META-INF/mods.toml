@@ -8,10 +8,10 @@ modId="playerai" #mandatory
 version="1.15.2-1.0.0" #mandatory
 
 displayName="Player Ai Mod" #mandatory
-updateJSONURL="http://myurl.me/" #optional
-displayURL="http://example.com/" #optional
-logoFile="examplemod.png" #optional
-credits="Thanks for this example mod goes to Java" #optional
+# updateJSONURL="http://myurl.me/" #optional
+displayURL="http://chrisevans9629.github.io/" #optional
+# logoFile="examplemod.png" #optional
+# credits="Thanks for this example mod goes to Java" #optional
 authors="Chris Evans" #optional
 description='''
 Adds player-like ai mobs that build houses, collect supplies, and fight enemies.
