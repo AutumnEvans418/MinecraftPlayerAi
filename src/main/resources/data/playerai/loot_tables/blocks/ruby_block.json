@@ -5,8 +5,23 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "playerai:ruby_block_item"
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 1,
+                    "max": 4,
+                    "type": "minecraft:uniform"
+                  }
+                }
+              ],
+              "name": "playerai:ruby_block_item"
+            }
+          ]
         }
       ]
     }

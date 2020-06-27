@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "playerai:ruby"
+    },
+    "y": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result":
+  {
+    "item": "playerai:ruby_block_item",
+    "count": 1
+  }
+}
