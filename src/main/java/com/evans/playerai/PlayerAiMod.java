@@ -2,6 +2,8 @@ package com.evans.playerai;
 
 import com.evans.playerai.util.RegistryHandler;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -34,4 +36,10 @@ public class PlayerAiMod
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
 
+    public static final ItemGroup TAB = new ItemGroup("playeraiTab") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(RegistryHandler.RUBY.get());
+        }
+    };
 }
