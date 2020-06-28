@@ -4,6 +4,7 @@ import com.evans.playerai.util.RegistryHandler;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -42,4 +43,9 @@ public class PlayerAiMod
             return new ItemStack(RegistryHandler.RUBY.get());
         }
     };
+
+    public static ResourceLocation location(String name)
+    {
+        return new ResourceLocation(MOD_ID, name);
+    }
 }
