@@ -15,8 +15,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,7 +28,7 @@ import java.util.ArrayList;
 
 
 
-
+@Mod.EventBusSubscriber(bus= Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryHandler {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, PlayerAiMod.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, PlayerAiMod.MOD_ID);
@@ -34,31 +37,31 @@ public class RegistryHandler {
 
     public static void init(){
 
-        ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
-
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-
-//        ArrayList<Biome> biomes = new ArrayList<>();
-//
-//        biomes.add(Biomes.FOREST);
-//        biomes.add(Biomes.BEACH);
-//        biomes.add(Biomes.JUNGLE);
-//        biomes.add(Biomes.PLAINS);
-//
-//        RegisterSpawning(biomes, PLAYER.get());
-
     }
 
+    public static void SetupSpawning(){
+        ArrayList<Biome> biomes = new ArrayList<>();
+
+        biomes.add(Biomes.FOREST);
+        biomes.add(Biomes.BEACH);
+        biomes.add(Biomes.JUNGLE);
+        biomes.add(Biomes.PLAINS);
+
+        RegisterSpawning(biomes, PLAYER.get());
+    }
+
+
     public static EntityType<PlayerEntity> createPlayerAi(){
-        return EntityType.Builder.create(PlayerEntity::new, EntityClassification.CREATURE).size(0.9f,1.3f).build(PlayerAiMod.location("player").toString());
+        return EntityType.Builder.create(PlayerEntity::new, EntityClassification.CREATURE).build(PlayerAiMod.location("player").toString());
     }
 
     //Entities
     public static final RegistryObject<EntityType<PlayerEntity>> PLAYER = ENTITY_TYPES.register("player", RegistryHandler::createPlayerAi);
     // Items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
-    //public static final RegistryObject<Item> PLAYER_EGG = ITEMS.register("player_egg", () -> RegisterSpawnEgg( EntityType.BAT,0x000000,0xffffff));
+    public static final RegistryObject<Item> PLAYER_EGG = ITEMS.register("player_egg", () -> RegisterSpawnEgg(PLAYER.get(),0x000000,0xffffff));
 
     // Blocks
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
@@ -80,5 +83,12 @@ public class RegistryHandler {
         }
     }
 
+    @SubscribeEvent
+    public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event)
+    {
+        ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
+
+        //TutorialEntities.registerEntityWorldSpawns();
+    }
 }
