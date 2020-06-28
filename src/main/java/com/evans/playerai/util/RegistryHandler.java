@@ -53,7 +53,7 @@ public class RegistryHandler {
         biomes.add(Biomes.JUNGLE);
         biomes.add(Biomes.PLAINS);
 
-        RegisterSpawning(biomes, createPlayerAi());
+        RegisterSpawning(biomes, PLAYER.get());
     }
 
 
@@ -85,7 +85,8 @@ public class RegistryHandler {
     public static void RegisterSpawning(Iterable<? extends Biome> biomes, EntityType<?> entityType){
         for(Biome biome : biomes){
             if(biome != null) {
-                biome.getSpawns(entityType.getClassification()).add(new Biome.SpawnListEntry(entityType, 10, 1, 2));
+                LOGGER.info("Adding " + entityType + " to biome " + biome);
+                biome.getSpawns(entityType.getClassification()).add(new Biome.SpawnListEntry(entityType, 1, 1, 5));
             }
         }
     }

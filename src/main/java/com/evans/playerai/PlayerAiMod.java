@@ -5,7 +5,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -14,6 +17,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod("playerai")
+@Mod.EventBusSubscriber(modid = PlayerAiMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PlayerAiMod
 {
     public static final String MOD_ID = "playerai";
@@ -27,6 +31,10 @@ public class PlayerAiMod
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+
+    @SubscribeEvent
+    public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
+    }
     private void setup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("HELLO FROM PREINIT");
@@ -35,6 +43,7 @@ public class PlayerAiMod
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        RegistryHandler.SetupSpawning();
     }
 
     public static final ItemGroup TAB = new ItemGroup("playeraiTab") {
