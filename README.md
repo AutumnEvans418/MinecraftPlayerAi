@@ -15,12 +15,15 @@ Eventually, these ai mobs will be able to
 ### Online Resources
 
 - [forge docs](https://mcforge.readthedocs.io/en/1.15.x/)
+- [Minecraft By Example](https://github.com/TheGreyGhost/MinecraftByExample)
+
 
 #### Tutorials
 - [getting started (youtube)](https://www.youtube.com/watch?v=JOTH1eDP99Y&list=PLDhiRTZ_vnoUI3-9z0Zg-I8tTSp3EfOia&index=1)
 - [crafting & smelting recipes (youtube)](https://www.youtube.com/watch?v=1sBn3_n9wuc&list=PLDhiRTZ_vnoUI3-9z0Zg-I8tTSp3EfOia&index=6)
+- [basic entities (youtube)](https://www.youtube.com/watch?v=xTO-pVwpKwA)
 - [entities modding](https://www.youtube.com/watch?v=IAwTCVl9Z4U&list=LL9eBu51_bZQbyrMlXog9VyQ&index=2&t=738s)
-
+- [Cadiboo's Projects](https://cadiboo.github.io/tutorials/1.15.2/forge/)
 #### Examples
 - [tektopia villagers dev playthrough (youtube)](https://www.youtube.com/watch?v=Xv_dhMQv1ME)
 - [tektopia villagers what if (youtube)](https://www.youtube.com/watch?v=GK6Vr9mcgjM)

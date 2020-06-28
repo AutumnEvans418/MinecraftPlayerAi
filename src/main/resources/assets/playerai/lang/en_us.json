@@ -1,5 +1,6 @@
 {
   "item.playerai.ruby": "Ruby",
   "block.playerai.ruby_block": "Ruby Block",
-  "itemGroup.playeraiTab": "Player Ai Tab"
+  "itemGroup.playeraiTab": "Player Ai Tab",
+  "entity.playerai.player": "AI Friend"
 }

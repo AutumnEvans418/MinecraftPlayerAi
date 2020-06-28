@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -32,29 +33,32 @@ public class RegistryHandler {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, PlayerAiMod.MOD_ID);
 
     public static void init(){
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
         ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-        ArrayList<Biome> biomes = new ArrayList<>();
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-        biomes.add(Biomes.FOREST);
-        biomes.add(Biomes.BEACH);
-        biomes.add(Biomes.JUNGLE);
-        biomes.add(Biomes.PLAINS);
+//        ArrayList<Biome> biomes = new ArrayList<>();
+//
+//        biomes.add(Biomes.FOREST);
+//        biomes.add(Biomes.BEACH);
+//        biomes.add(Biomes.JUNGLE);
+//        biomes.add(Biomes.PLAINS);
+//
+//        RegisterSpawning(biomes, PLAYER.get());
 
-        RegisterSpawning(biomes, PLAYER.get());
     }
 
     public static EntityType<PlayerEntity> createPlayerAi(){
-        return EntityType.Builder.create(PlayerEntity::new, EntityClassification.CREATURE).build(PlayerAiMod.MOD_ID + ":player");
+        return EntityType.Builder.create(PlayerEntity::new, EntityClassification.CREATURE).size(0.9f,1.3f).build(PlayerAiMod.location("player").toString());
     }
 
     //Entities
-    public static final RegistryObject<EntityType<?>> PLAYER = ENTITY_TYPES.register("player", () -> createPlayerAi());
+    public static final RegistryObject<EntityType<PlayerEntity>> PLAYER = ENTITY_TYPES.register("player", RegistryHandler::createPlayerAi);
     // Items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
-    public static final RegistryObject<Item> PLAYER_EGG = ITEMS.register("player_egg", () -> RegisterSpawnEgg( EntityType.BAT,0x000000,0xffffff));
+    //public static final RegistryObject<Item> PLAYER_EGG = ITEMS.register("player_egg", () -> RegisterSpawnEgg( EntityType.BAT,0x000000,0xffffff));
 
     // Blocks
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
@@ -65,8 +69,7 @@ public class RegistryHandler {
             () -> new BlockItemBase(RUBY_BLOCK.get()));
 
     public static Item RegisterSpawnEgg(EntityType<?> type, int color1, int color2){
-        SpawnEggItem item = new SpawnEggItem(type, color1, color2, new Item.Properties().group(PlayerAiMod.TAB));
-        return  item;
+        return new SpawnEggItem(type, color1, color2, new Item.Properties().group(PlayerAiMod.TAB));
     }
 
     public static void RegisterSpawning(Iterable<? extends Biome> biomes, EntityType<?> entityType){
