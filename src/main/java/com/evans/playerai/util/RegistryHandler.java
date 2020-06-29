@@ -3,25 +3,17 @@ package com.evans.playerai.util;
 import com.evans.playerai.PlayerAiMod;
 import com.evans.playerai.blocks.BlockItemBase;
 import com.evans.playerai.blocks.RubyBlock;
-import com.evans.playerai.client.renders.PlayerEntityRender;
-import com.evans.playerai.entities.PlayerEntity;
+import com.evans.playerai.entities.PlayerAiEntity;
 import com.evans.playerai.items.ItemBase;
 import com.evans.playerai.items.ModdedSpawnEggItem;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -57,15 +49,15 @@ public class RegistryHandler {
     }
 
 
-    public static EntityType<PlayerEntity> createPlayerAi(){
+    public static EntityType<PlayerAiEntity> createPlayerAi(){
         String name = PlayerAiMod.location("player").toString();
-        EntityType<PlayerEntity> build = EntityType.Builder.create(PlayerEntity::new, EntityClassification.CREATURE).build(name);
+        EntityType<PlayerAiEntity> build = EntityType.Builder.create(PlayerAiEntity::new, EntityClassification.CREATURE).build(name);
         //build.setRegistryName(name);
         return build;
     }
 
     //Entities
-    public static final RegistryObject<EntityType<PlayerEntity>> PLAYER = ENTITY_TYPES.register("player", RegistryHandler::createPlayerAi);
+    public static final RegistryObject<EntityType<PlayerAiEntity>> PLAYER = ENTITY_TYPES.register("player", RegistryHandler::createPlayerAi);
     // Items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
     public static final RegistryObject<Item> PLAYER_EGG = ITEMS.register("player_egg", () -> new ModdedSpawnEggItem(PLAYER, 0xffffff,0x000000, new Item.Properties().group(PlayerAiMod.TAB)));

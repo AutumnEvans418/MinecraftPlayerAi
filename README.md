@@ -23,13 +23,14 @@ Eventually, these ai mobs will be able to
 - [crafting & smelting recipes (youtube)](https://www.youtube.com/watch?v=1sBn3_n9wuc&list=PLDhiRTZ_vnoUI3-9z0Zg-I8tTSp3EfOia&index=6)
 - [basic entities (youtube)](https://www.youtube.com/watch?v=xTO-pVwpKwA)
 - [entities modding](https://www.youtube.com/watch?v=IAwTCVl9Z4U&list=LL9eBu51_bZQbyrMlXog9VyQ&index=2&t=738s)
-- [Cadiboo's Projects](https://cadiboo.github.io/tutorials/1.15.2/forge/)
-- [Entities, Eggs, Spawning (github)](https://github.com/HarryTechRevs/MinecraftModding1.13)
 - [Harry Talks entities, eggs, spawning (youtube)](https://www.youtube.com/watch?v=IAwTCVl9Z4U&t=738s)
 
 #### Examples
 - [tektopia villagers dev playthrough (youtube)](https://www.youtube.com/watch?v=Xv_dhMQv1ME)
 - [tektopia villagers what if (youtube)](https://www.youtube.com/watch?v=GK6Vr9mcgjM)
+- [Cadiboo's Projects (github)](https://cadiboo.github.io/tutorials/1.15.2/forge/)
+- [Entities, Eggs, Spawning (github)](https://github.com/HarryTechRevs/MinecraftModding1.13)
+- [Turty entities, eggs, spawning (github)](https://github.com/DaRealTurtyWurty/1.15-Tut-Mod/tree/master)
 
 
 ### Minecraft Info
