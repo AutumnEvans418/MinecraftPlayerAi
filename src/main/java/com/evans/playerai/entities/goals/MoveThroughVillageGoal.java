@@ -51,6 +51,7 @@ public class MoveThroughVillageGoal extends Goal {
         this.resizeDoorList();
 
         ServerWorld serverworld = (ServerWorld)this.entity.world;
+        
         BlockPos blockpos = new BlockPos(this.entity);
         if (!serverworld.isCloseToVillage(blockpos, 6)) {
             return false;

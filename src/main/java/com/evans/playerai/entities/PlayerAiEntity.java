@@ -34,7 +34,7 @@ public class PlayerAiEntity extends CreatureEntity {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new SwimGoal(this));
+        //this.goalSelector.addGoal(0, new SwimGoal(this));
         //this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 0.5d));
         //this.goalSelector.addGoal(2, new LookAtGoal(this, net.minecraft.entity.player.PlayerEntity.class, 10));
         //this.goalSelector.addGoal(3, new LookRandomlyGoal(this));

@@ -1,6 +1,7 @@
 package com.evans.playerai;
 
 import com.evans.playerai.util.RegistryHandler;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -44,6 +45,7 @@ public class PlayerAiMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
         RegistryHandler.SetupSpawning();
+        //Blocks.DIRT
     }
 
     public static final ItemGroup TAB = new ItemGroup("playeraiTab") {
@@ -57,4 +59,6 @@ public class PlayerAiMod
     {
         return new ResourceLocation(MOD_ID, name);
     }
+
+
 }

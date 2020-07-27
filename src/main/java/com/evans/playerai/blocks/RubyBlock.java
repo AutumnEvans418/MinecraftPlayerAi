@@ -1,6 +1,8 @@
 package com.evans.playerai.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
@@ -19,7 +21,7 @@ public class RubyBlock extends Block {
                 .harvestLevel(2)
 
                 .harvestTool(ToolType.PICKAXE)
-
         );
+
     }
 }
